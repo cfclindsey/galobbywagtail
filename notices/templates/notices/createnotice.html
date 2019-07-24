@@ -1,0 +1,885 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
+    <title>Georgia Lobby - In Assistance to the Lobbyist</title>
+    <!-- This page CSS -->
+    <link href="{% static 'assets/node_modules/morrisjs/morris.css' %}" rel="stylesheet">
+    <!--Toaster Popup message CSS -->
+    <link href="{% static 'assets/node_modules/toast-master/css/jquery.toast.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'dist/css/style.min.css' %}" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="{% static 'dist/css/pages/dashboard1.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/node_modules/bootstrap-table/dist/bootstrap-table.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <link href="{% static 'assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/node_modules/select2/dist/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/node_modules/switchery/dist/switchery.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/node_modules/bootstrap-select/bootstrap-select.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/node_modules/multiselect/css/multi-select.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- Date picker plugins css -->
+    <link href="{% static 'assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Daterange picker plugins css -->
+    <link href="{% static 'assets/node_modules/timepicker/bootstrap-timepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/node_modules/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'dist/css/custom.css' %}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="skin-default fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Georgia Lobby</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <img src="{% static 'assets/images/galobbylogo.png' %}" alt="homepage" class="dark-logo" />
+                         <!-- Light Logo text -->
+                         <img src="{% static 'assets/images/logo-light-text.png' %}" class="light-logo" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item">
+                            <form class="app-search d-none d-md-block d-lg-block">
+                                <input type="text" class="form-control" placeholder="Search & enter">
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-note"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox dropdown-menu-right animated bounceInDown" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Quick Menu</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+
+                                                <div class="mail-contnet">
+                                                    <span class="mail-desc">Create Board Watch Notice</span>
+                                                  </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+
+                                                <div class="mail-contnet">
+                                                    <span class="mail-desc">Create Government Watch notice</span>
+                                                  </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+
+                                                <div class="mail-contnet">
+                                                  <span class="mail-desc">Manage Subscribers and Contracts</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+
+                                                <div class="mail-contnet">
+                                                    <span class="mail-desc">Add Contract</span>
+                                                  </div>
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- mega menu -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-layout-width-default"></i></a>
+                            <div class="dropdown-menu animated bounceInDown">
+                                <ul class="mega-dropdown-menu row">
+                                    <li class="col-lg-3 col-xlg-2 m-b-30">
+                                        <h4 class="m-b-20">Photo Gallery</h4>
+                                        <!-- CAROUSEL -->
+                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="carousel-item active">
+                                                    <div class="container"> <img class="d-block img-fluid" src="{% static 'assets/images/big/img1.jpg' %}" alt="First slide"></div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="container"><img class="d-block img-fluid" src="{% static 'assets/images/big/img2.jpg' %}" alt="Second slide"></div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="container"><img class="d-block img-fluid" src="{% static 'assets/images/big/img3.jpg' %}" alt="Third slide"></div>
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                                        </div>
+                                        <!-- End CAROUSEL -->
+                                    </li>
+                                    <li class="col-lg-3 m-b-30">
+                                        <h4 class="m-b-20">Admin Menu</h4>
+                                        <!-- Accordian -->
+                                        <div class="accordion" id="accordionExample">
+                                            <div class="card m-b-0">
+                                                <div class="card-header bg-white p-0" id="headingOne">
+                                                  <h5 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                      System Utilities
+                                                    </button>
+                                                  </h5>
+                                                </div>
+
+                                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                  <div class="card-body">
+                                                    <ul>
+                                                    <li>Clear cache</li>
+                                                    <li>Email log</li>
+                                                    <li>Bill Importer</li>
+                                                    <li>Status Report</li>
+                                                  </ul>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="card m-b-0">
+                                                <div class="card-header bg-white p-0" id="headingTwo">
+                                                  <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                      Example
+                                                    </button>
+                                                  </h5>
+                                                </div>
+                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                  <div class="card-body">
+                                                    Anim pariatur cliche reprehenderit, enim eiusmod high.
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="card m-b-0">
+                                                <div class="card-header bg-white p-0" id="headingThree">
+                                                  <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                      Collapsible Group Item #3
+                                                    </button>
+                                                  </h5>
+                                                </div>
+                                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                  <div class="card-body">
+                                                    Anim pariatur cliche reprehenderit, enim eiusmod high.
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-lg-3  m-b-30">
+                                        <h4 class="m-b-20">CONTACT US</h4>
+                                        <!-- Contact -->
+                                        <form>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name"> </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Enter email"> </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-info">Submit</button>
+                                        </form>
+                                    </li>
+                                    <li class="col-lg-3 col-xlg-4 m-b-30">
+                                        <h4 class="m-b-20">Notices</h4>
+                                        <!-- List style -->
+                                        <ul class="list-style-none">
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Create Notice</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Edit Notices</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> View Notices</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Forth link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Fifth link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End mega menu -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- User Profile-->
+                <div class="user-profile">
+                    <div class="user-pro-body">
+                        <div>
+                            <img src="{% static 'assets/images/users/normer.png' %}" alt="user-img" class="img-circle">
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Normer Adams
+                                <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu animated flipInY">
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="ti-user"></i> My Profile</a>
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="ti-wallet"></i> My Subscriptions</a>
+
+                                <!-- text-->
+                                <div class="dropdown-divider"></div>
+                                <!-- text-->
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="ti-settings"></i> Account Settings</a>
+                                <!-- text-->
+                                <div class="dropdown-divider"></div>
+                                <!-- text-->
+                                <a href="pages-login.html" class="dropdown-item">
+                                    <i class="fa fa-power-off"></i> Logout</a>
+                                <!-- text-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap">--- Administrator Menu</li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-speedometer"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="/">Dashboard Home</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-grid2"></i>
+                                <span class="hide-menu">Notice Management</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="#">Add Board Watch Notice</a>
+                                </li>
+                                <li>
+                                    <a href="#">Add Government Watch Notice</a>
+                                </li>
+                                <li>
+                                    <a href="#">Manage Subscribers</a>
+                                </li>
+                                <li>
+                                    <a href="#">Manage Contracts</a>
+                                </li>
+                                <li>
+                                    <a href="#">Add Contract</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-email"></i>
+                                <span class="hide-menu">System Utilites</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="a#">Clear Cache</a>
+                                </li>
+                                <li>
+                                    <a href="#">System Log</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bill Importer</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-small-cap">--- Manage My Subscriptions</li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-media-right-alt"></i>
+                                <span class="hide-menu">Board Watch</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-layout-accordion-merged"></i>
+                                <span class="hide-menu">Government Watch</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-settings"></i>
+                                <span class="hide-menu">Bill Watch</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-settings"></i>
+                                <span class="hide-menu">Code Watch</span>
+                            </a>
+
+                        </li>
+                        <li class="nav-small-cap">--- Client Watch Reporting</li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-gallery"></i>
+                                <span class="hide-menu">My Client Watch Bills</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files"></i>
+                                <span class="hide-menu">My Clients/Issues
+
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-files"></i>
+                                <span class="hide-menu">Client Watch Reports
+
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="ti-pie-chart"></i>
+                                <span class="hide-menu">Client Watch Team Collaboration</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">--- My Profile</li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="pages-faq.html" aria-expanded="false">
+                                <i class="far fa-circle text-info"></i>
+                                <span class="hide-menu">Edit My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="pages-login.html" aria-expanded="false">
+                                <i class="far fa-circle text-success"></i>
+                                <span class="hide-menu">Log Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Info box -->
+                <!-- ============================================================== -->
+                <div class="card-group" id="homepage-top">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-screen-desktop"></i></h3>
+                                            <p class="text-muted">Board Watch Notices</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-primary">123</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-note"></i></h3>
+                                            <p class="text-muted">Government Watch Notices</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-cyan">79</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-doc"></i></h3>
+                                            <p class="text-muted">Contracts</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-purple">157</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div>
+                                            <h3><i class="icon-bag"></i></h3>
+                                            <p class="text-muted">Users</p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <h2 class="counter text-success">431</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Info box -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start GA Lobby widget/cards -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-md-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                              <div class="col-6">
+                                  <h3>Create Board Watch Notice</h3>
+                              </div>
+                              <div class="form-group">
+                                  <label>Title</label>
+                                  <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                <label>Committees</label>
+                                  <select class="selectpicker" multiple data-style="form-control">
+                                      <option>All</option>
+                                      <option>Committee 1</option>
+                                      <option>Board 2</option>
+                                  </select>
+                                <!--    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                      <option selected>All</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                  </select> -->
+                              </div>
+                              <div class="form-group row pt-3">
+                                  <div class="col-sm-4">
+                                      <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                          <label class="custom-control-label" for="customCheck1">No date</label>
+                                      </div>
+                                  </div>
+
+                              </div>
+                              <div class="form-group">
+                                    <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="icon-calender"></i></span>
+                                        </div>
+                                    </div>
+                              </div>
+                              <div class="form-group">
+                                  <label>Body</label>
+                                  <textarea class="form-control" id="mymce" rows="5"></textarea>
+                              </div>
+
+                              <div class="form-group">
+                                  <label>Default file upload</label>
+                                  <input type="file" class="form-control">
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                  </div>
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer">
+            © 2019 Georgia Lobby designed by <a href="https://countryfriedcreative.com"> Country Fried Creative</a>
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{% static 'assets/node_modules/jquery/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="{% static 'assets/node_modules/popper/popper.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{% static 'dist/js/perfect-scrollbar.jquery.min.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'dist/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'dist/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'dist/js/custom.min.js' %}"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="{% static 'assets/node_modules/raphael/raphael-min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/morrisjs/morris.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+    <!-- Popup message jquery
+    <script src="{% static 'assets/node_modules/toast-master/js/jquery.toast.js' %}"></script> -->
+    <!-- Chart JS -->
+    <script src="{% static 'dist/js/dashboard1.js' %}"></script>
+    <!-- Popup message jquery -->
+    <script src="{% static 'assets/node_modules/toast-master/js/jquery.toast.js' %}"></script>
+
+    <!--Custom JavaScript
+    <script src="{% static 'dist/js/custom.min.js' %}"></script> -->
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="{% static 'assets/node_modules/bootstrap-table/dist/bootstrap-table.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/bootstrap-table/dist/bootstrap-table-locale-all.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/bootstrap-table/dist/extensions/export/bootstrap-table-export.min.js' %}"></script>
+    <script src="{% static 'dist/js/pages/bootstrap-table.init.js' %}"></script>
+
+    <!-- wysuhtml5 Plugin JavaScript -->
+    <script src="{% static 'assets/node_modules/tinymce/tinymce.min.js' %}"></script>
+    <script>
+    $(function() {
+
+        if ($("#mymce").length > 0) {
+            tinymce.init({
+                selector: "textarea#mymce",
+                theme: "modern",
+                height: 300,
+                plugins: [
+                    "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                    "save table contextmenu directionality emoticons template paste textcolor"
+                ],
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+
+            });
+        }
+    });
+    </script>
+
+    <script src="{% static 'assets/node_modules/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js' %}"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <!-- end - This is for export functionality only -->
+    <!-- multiple select picker -->
+    <script src="{% static 'assets/node_modules/switchery/dist/switchery.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/select2/dist/js/select2.full.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/node_modules/bootstrap-select/bootstrap-select.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/node_modules/dff/dff.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{% static 'assets/node_modules/multiselect/js/jquery.multi-select.js' %}"></script>
+
+    <script src="{% static 'assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.js' %}"></script>
+
+    <script src="{% static 'assets/node_modules/timepicker/bootstrap-timepicker.min.js' %}"></script>
+    <script>
+        $(function () {
+            $('#myTable').DataTable();
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function () {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+            // responsive table
+            $('#config-table').DataTable({
+                responsive: true
+            });
+            $('#example23').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+            $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
+        });
+        $(function () {
+        // Switchery
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        $('.js-switch').each(function () {
+            new Switchery($(this)[0], $(this).data());
+        });
+        // For select 2
+        $(".select2").select2();
+        $('.selectpicker').selectpicker();
+        //Bootstrap-TouchSpin
+        $(".vertical-spin").TouchSpin({
+            verticalbuttons: true
+        });
+        var vspinTrue = $(".vertical-spin").TouchSpin({
+            verticalbuttons: true
+        });
+        if (vspinTrue) {
+            $('.vertical-spin').prev('.bootstrap-touchspin-prefix').remove();
+        }
+        $("input[name='tch1']").TouchSpin({
+            min: 0,
+            max: 100,
+            step: 0.1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            postfix: '%'
+        });
+        $("input[name='tch2']").TouchSpin({
+            min: -1000000000,
+            max: 1000000000,
+            stepinterval: 50,
+            maxboostedstep: 10000000,
+            prefix: '$'
+        });
+        $("input[name='tch3']").TouchSpin();
+        $("input[name='tch3_22']").TouchSpin({
+            initval: 40
+        });
+        $("input[name='tch5']").TouchSpin({
+            prefix: "pre",
+            postfix: "post"
+        });
+        // For multiselect
+        $('#pre-selected-options').multiSelect();
+        $('#optgroup').multiSelect({
+            selectableOptgroup: true
+        });
+        $('#public-methods').multiSelect();
+        $('#select-all').click(function () {
+            $('#public-methods').multiSelect('select_all');
+            return false;
+        });
+        $('#deselect-all').click(function () {
+            $('#public-methods').multiSelect('deselect_all');
+            return false;
+        });
+        $('#refresh').on('click', function () {
+            $('#public-methods').multiSelect('refresh');
+            return false;
+        });
+        $('#add-option').on('click', function () {
+            $('#public-methods').multiSelect('addOption', {
+                value: 42,
+                text: 'test 42',
+                index: 0
+            });
+            return false;
+        });
+        $(".ajax").select2({
+            ajax: {
+                url: "https://api.github.com/search/repositories",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
+                processResults: function (data, params) {
+                    // parse the results into the format expected by Select2
+                    // since we are using custom formatting functions we do not need to
+                    // alter the remote JSON data, except to indicate that infinite
+                    // scrolling can be used
+                    params.page = params.page || 1;
+                    return {
+                        results: data.items,
+                        pagination: {
+                            more: (params.page * 30) < data.total_count
+                        }
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function (markup) {
+                return markup;
+            }, // let our custom formatter work
+            minimumInputLength: 1,
+            //templateResult: formatRepo, // omitted for brevity, see the source of this page
+            //templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+        });
+      });
+
+      // Date Picker
+      jQuery('.mydatepicker, #datepicker').datepicker();
+      jQuery('#datepicker-autoclose').datepicker({
+          autoclose: true,
+          todayHighlight: true
+      });
+      jQuery('#date-range').datepicker({
+          toggleActive: true
+      });
+      jQuery('#datepicker-inline').datepicker({
+          todayHighlight: true
+      });
+
+    </script>
+
+</body>
+
+</html>
